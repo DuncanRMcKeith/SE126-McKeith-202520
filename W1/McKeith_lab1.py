@@ -12,7 +12,7 @@
 #people = amount of people actually in the room
 #ans = just a short term for answer 
 #answer = loop key
-#final_room = total amount for the final room that we use to sort and tell the person if they have to many, too few, or just the right amount of people
+#final_room = total amount for the final room that we use to sort and tell the person if they have to many, too few, or just the right amount of people. This really means maxcap - people, could be positive or negative but will always be printed as a absolute value. 
 
 #------------------MAIN CODE BELOW----------------------------
 #Imported Functions- Noted None for this prompt. 
