@@ -23,8 +23,8 @@ import csv
 
 
 #Initalzing the CSV FILE
-print("Type\t Brand\t CPU \t Ram\t 1st Disk\t No.HDD\t 2nd Disk\t OS\t Year")
-
+print(f"{'Type':8} {'Brand':8} {'CPU':8} {'Ram':5} {'No.HDD':6} {'1st Disk':10} {'2nd Disk':10} {'OS':10} {'Year':10}")
+print("-------------------------------------------------------------------------------------------------")
 with open("Txt_Files/filehandling.csv") as csvfile:
     
     file = csv.reader(csvfile) #gotta be able to read the csv file
@@ -56,8 +56,9 @@ with open("Txt_Files/filehandling.csv") as csvfile:
         number_hd = rec[5]
         
         if number_hd == "2":
-            print(f"{rec[0]}\t {rec[1]}\t {rec[2]} \t {rec[3]}\t {rec[4]}\t {rec[5]}\t {rec[6]}\t {rec[7]}\t {rec[8]}")
+        
+            print(f"{rec[0]:8} {rec[1]:8} {rec[2]:8} {rec[3]:5} {rec[4]:10} {rec[5]:10} {rec[6]:10} {rec[7]:10} {rec[8]:5}")
         else:
-            print(f"{rec[0]}\t {rec[1]}\t {rec[2]} \t {rec[3]}\t {rec[4]}\t {rec[5]}\t\t {rec[6]}\t {rec[7]}")
-
+        
+            print(f"{rec[0]:8} {rec[1]:8} {rec[2]:8} {rec[3]:5} {rec[4]:10} {rec[5]:10} {'':10} {rec[6]:10} {rec[7]:5}")
 
