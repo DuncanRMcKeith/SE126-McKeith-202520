@@ -74,15 +74,18 @@ with open("Txt_Files/filehandling-1.csv") as csvfile:
         
 for i in range(0,len(type_)):
     if yr[i] <= 16: #This one is to calculate the desktop laptop money to replace
-        #Now we seperate the two catagories
+        #Now we seperate the two catagories for laptop and desktop moneys. 
         if type_[i] == "D":
             dReplace +=2000
             dReplace_total += 1
         if type_[i] == "L":
             lReplace += 1500
             lReplace_total += 1
+    #Note this is just to print the list from before, NOT HAVING ANYTHING TO DO WITH UP ABOVE. 
     print(f"{type_[i]:5} {manu[i]:5} {proc[i]:5} {ram[i]:5} {hdd1[i]:5} {no_hdd[i]:5} {hdd2[i]:8} {os[i]:6} {yr[i]:3}") 
-
+    
+    
+#Final print
 print("{-------------------------------------------------------------}")
 print(f"To replace {dReplace_total:1} it will cost ${dReplace:8}")
 print(f"To replace {lReplace_total:1} it will cost ${lReplace:8}")
