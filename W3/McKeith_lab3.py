@@ -39,13 +39,13 @@ with open ("Txt_Files/voters_202040.csv") as csvfile:
         voted.append(rec[3])
 
 for i in range(0,len(vote_id)):
-    if age < 18:
+    if age[i] < 18:
         non_eligable += 1
-    elif age > 18 and registared == "Y":
+    elif age[i] > 18 and registared == "Y":
         non_registared += 1
-    elif registared == "Y" and voted =="N":
+    elif registared[i] == "Y" and voted =="N":
         didnt_vote += 0 
-    elif voted == "Y":
+    elif voted[i] == "Y":
         vote_count += 1
     else:
         print("This shouldnt be seen when executing code")
