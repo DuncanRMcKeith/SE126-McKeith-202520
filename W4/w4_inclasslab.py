@@ -33,3 +33,4 @@ with open("Txt_Files/class_grades.csv") as csvfile:
         test1.append(rec[2])
         test2.append(rec[3])
         test3.append(rec[4])
+    
