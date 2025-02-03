@@ -129,6 +129,7 @@ while ans == "y":
         if found != -1:
             print(f"Your Search for {search_name} WAR FOUND!")
             print(f"{fName[found]:8}    {lName[found]:8}     {test1[found]:3}     {test2[found]:3}     {test3[found]:3}    {num_avg[found]:3.2f}    {lgrade[found]}")
+        
         else:
             print(f"Your Search for {search_name} want found :(")
     
@@ -169,7 +170,8 @@ while ans == "y":
         else:
             print (f"Your search for {search_grade} was Found!")
             for i in range (0, len(found)):
-                print(f"{fName[found[i]]:8}    {lName[found[i]]:8}     {test1[found[i]]:3}     {test2[found[i]]:3}     {test3[found[i]]:3}    {num_avg[found[i]]:3.2f}    {lgrade[found[i]]}")
+                if i < len(found) - 1:
+                    print(f"{fName[found[i]]:8}    {lName[found[i]]:8}     {test1[found[i]]:3}     {test2[found[i]]:3}     {test3[found[i]]:3}    {num_avg[found[i]]:3.2f}    {lgrade[found[i]]}")
                 
                 
     

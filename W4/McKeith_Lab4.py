@@ -119,7 +119,10 @@ for i in range(0,len(fName)):
 
 file = open('Txt_Files/westeros.csv', 'w') #Create new file as csv
 for i in range(0,len(fName)): #AKA FOR EVERY REC WRITE A NEW ONE USING ONLY THIS DATA AS A CSV FILE.
-    file.write(f"{fName[i]},{lName[i]},{email[i]},{dept[i]},{phone[i]}\n")
+    if i < len(fName) - 1:
+        file.write(f"{fName[i]},{lName[i]},{email[i]},{dept[i]},{phone[i]}\n")
+    else:
+        file.write(f"{fName[i]},{lName[i]},{email[i]},{dept[i]},{phone[i]}")
 file.close()
 
 
