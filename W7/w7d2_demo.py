@@ -48,6 +48,14 @@ while ans == "y":
         print("INVALID! Please try again!")
     elif choice == "1":
         print("search by name")
+        for i in range(0,len(names)-1):
+            for j in range(len(names)-1):
+                #see if "larger" value is in front of1 "smaller" value
+                if names[j] < names[j+1]:
+                    #SWAP Places! - not just this value, but all associated values
+                    swap(j,names)
+                    swap(j,nums)
+                    swap(j,colors)
         min = 0     #always starting value --->first index
         max = len(names)-1      #LAST INDEX / highest value in ascending ordered lists. 
         mid = int((min+max) /2)     #MIDDLE INDEX: Middle value in ascending order.
@@ -56,7 +64,7 @@ while ans == "y":
         
         while min<max and search.lower() != names[mid].lower():
             if search < names[mid]:
-                max = min - 1
+                max = mid - 1
             else:
                 min = mid + 1
             mid = int((min+max) / 2)
@@ -76,12 +84,14 @@ while ans == "y":
         #WE BUBBLE BEFORE BINARY
         for i in range(0,len(colors)-1):
             for j in range(len(colors)-1):
-                #see if "larger" value is in front of "smaller" value
+                #see if "larger" value is in front of1 "smaller" value
                 if colors[j] < colors[j+1]:
                     #SWAP Places! - not just this value, but all associated values
                     swap(j,colors)
                     swap(j,nums)
                     swap(j,names)
+                    
+
         min = 0     #always starting value --->first index
         max = len(colors)-1      #LAST INDEX / highest value in ascending ordered lists. 
         mid = int((min+max) /2)     #MIDDLE INDEX: Middle value in ascending order.
@@ -90,7 +100,7 @@ while ans == "y":
         
         while min<max and search.lower() !=colors[mid].lower():
             if search < colors[mid]:
-                max = min - 1
+                max = mid - 1
             else:
                 min = mid + 1
             mid = int((min+max) / 2)
