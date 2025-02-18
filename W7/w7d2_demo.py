@@ -121,3 +121,22 @@ while ans == "y":
 print("Thank you for using our progam. Good Day!")
     
         
+
+
+
+
+
+
+#this will be a 2D LIST TO HOLD ALL OF THE FILE DATA:\
+dataFile = [
+names, 
+nums,
+colors
+]
+
+with open ("Txt_Files/simple.csv"):
+    print("\n\nDATA FILE (2D List[][]): ")
+for i in range(0, len(dataFile)):
+    print(f"INDEX {i} of 'DataFile: {dataFile[i]}")
+    for j in range(0,len(dataFile[i])):
+        print(f"Index{i} and Value Datafile{j}: {dataFile[i][j]}")
