@@ -51,12 +51,12 @@ with open("Txt_Files/book_list.csv") as csvfile:
     file = csv.reader(csvfile)
 
     for rec in file:
-        lib_num.append[rec[0]]
-        title.append[rec[1]]
-        author.append[rec[2]]
-        genre.append[rec[3]]
-        page_count.append[rec[4]]
-        status.append[rec[5]]
+        lib_num.append(rec[0])
+        title.append(rec[1])
+        author.append(rec[2])
+        genre.append(rec[3])
+        page_count.append(rec[4])
+        status.append(rec[5])
         
 #empty list variables from csv file book_list.csv 
 while answer == "y":
@@ -65,7 +65,7 @@ while answer == "y":
         print ("Show all titles, via althebetical order")
         for i in range(0, len(title) - 1):
             for index in range(0 , len(title)):
-                if (title[index] > title[index + 1]):
+                if (title[index] > title [index + 1]):
                     swap(index , title)
                     swap(index , lib_num)
                     swap(index , author)
@@ -76,7 +76,7 @@ while answer == "y":
         print(f"{'LIB #':5}  {'TITLE ':25}  {'AUTHOR':15}  {'GENRE':20}  {'PAGES':5} {'STATUS'}")
         print("-------------------------------------------------")
         for i in range(0,len(title)):
-             print(print(f" {lib_num:5}  {title:25}  {author:15}  {genre:20}  {page_count:5} {status}"))
+             print(print(f" {lib_num[i]:5}  {title[i]:25}  {author[i]:15}  {genre[i]:20}  {page_count[i]:5} {status[i]}"))
     if search == "2":
         print ("2")
     if search == "3":
