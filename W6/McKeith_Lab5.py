@@ -63,16 +63,30 @@ while answer == "y":
     search =menu()
     if search == "1":
         print ("Show all titles, via althebetical order")
-        for i in range(0, len(title) - 1):
-            for index in range(0 , len(title)):
-                if (title[index] > title [index + 1]):
-                    swap(index , title)
-                    swap(index , lib_num)
-                    swap(index , author)
-                    swap(index , genre)
-                    swap(index , page_count)
-                    swap(index , status)
-                    swap(index , answer)
+        #Althebetical order means to sort. BUBBLE SORT NEEDS TO BE ACTIVE: 
+        for i in range(0, len(title) - 1):#outter loop
+
+            for index in range(0, len(title) - 1):#inner loop
+
+                #below if statement determines the sort
+
+                #list used is the list being sorted
+
+                # > is for increasing order, < for decreasing
+
+
+                if(title[index] > title[index + 1]):
+                    #if above is true, swap places!
+
+        
+
+                    swap(index, title)
+                    swap(index, )
+                    #swap all other values
+                  
+
+    
+        #PRINT STATMENT FOR 
         print(f"{'LIB #':5}  {'TITLE ':25}  {'AUTHOR':15}  {'GENRE':20}  {'PAGES':5} {'STATUS'}")
         print("-------------------------------------------------")
         for i in range(0,len(title)):
