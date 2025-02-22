@@ -34,6 +34,7 @@ def menu():
     return search_opt
 
 def swap(i, listname):
+    '''Used to swap when doing bubble sort, do not touch'''
     temp = listname[i] #temp stands for tempory value. 
     listname[index] = listname[index + 1]
     listname[index + 1] = temp
@@ -81,18 +82,22 @@ while answer == "y":
         
 
                     swap(index, title)
-                    swap(index, )
-                    #swap all other values
+                    swap(index, lib_num)
+                    swap(index, author)
+                    swap(index, genre)
+                    swap(index, page_count)
+                    swap(index, status)
+                    #swap all other values THIS IS THE BUBBLE SORT FOR TITLES, NOW WE CAN COPY AND SWAP STUFF AROUND AS NEED BE 
                   
 
     
-        #PRINT STATMENT FOR 
-        print(f"{'LIB #':5}  {'TITLE ':25}  {'AUTHOR':15}  {'GENRE':20}  {'PAGES':5} {'STATUS'}")
-        print("-------------------------------------------------")
+        #PRINT STATMENT FOR OUR LAB- Could put in a function but will not since all my stuff got deleted :(
+        print(f"{'LIB #':5}  {'TITLE ':35}  {'AUTHOR':20}  {'GENRE':20}  {'PAGES':5} {'STATUS'}")
+        print("-------------------------------------------------------------------------------------------------------------------------------")
         for i in range(0,len(title)):
-             print(print(f" {lib_num[i]:5}  {title[i]:25}  {author[i]:15}  {genre[i]:20}  {page_count[i]:5} {status[i]}"))
+             print(print(f" {lib_num[i]:5}  {title[i]:35}  {author[i]:20}  {genre[i]:20}  {page_count[i]:5} {status[i]}"))
     if search == "2":
-        print ("2")
+        print ("Seach By title(SINGULAR )")
     if search == "3":
         print ("3")
     if search == "4":
@@ -105,3 +110,4 @@ while answer == "y":
         print("7")
     if search == "8":
         answer = "n"
+
