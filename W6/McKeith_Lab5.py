@@ -57,6 +57,7 @@ with open("Txt_Files/book_list.csv") as csvfile:
         genre.append[rec[3]]
         page_count.append[rec[4]]
         status.append[rec[5]]
+        
 #empty list variables from csv file book_list.csv 
 while answer == "y":
     search =menu()
@@ -74,7 +75,8 @@ while answer == "y":
                     swap(index , answer)
         print(f"{'LIB #':5}  {'TITLE ':25}  {'AUTHOR':15}  {'GENRE':20}  {'PAGES':5} {'STATUS'}")
         print("-------------------------------------------------")
-        print(print(f" {lib_num:5}  {title:25}  {author:15}  {genre:20}  {page_count:5} {status}"))
+        for i in range(0,len(title)):
+             print(print(f" {lib_num:5}  {title:25}  {author:15}  {genre:20}  {page_count:5} {status}"))
     if search == "2":
         print ("2")
     if search == "3":
