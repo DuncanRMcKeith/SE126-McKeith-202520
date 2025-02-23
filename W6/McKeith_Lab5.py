@@ -95,15 +95,107 @@ while answer == "y":
         print(f"{'LIB #':5}  {'TITLE ':35}  {'AUTHOR':20}  {'GENRE':20}  {'PAGES':5} {'STATUS'}")
         print("-------------------------------------------------------------------------------------------------------------------------------")
         for i in range(0,len(title)):
-             print(print(f" {lib_num[i]:5}  {title[i]:35}  {author[i]:20}  {genre[i]:20}  {page_count[i]:5} {status[i]}"))
+             print(f" {lib_num[i]:5}  {title[i]:35}  {author[i]:20}  {genre[i]:20}  {page_count[i]:5} {status[i]}")
+    
     if search == "2":
-        print ("Seach By title(SINGULAR )")
+        print ("Seach By title(CAN BE KEYWORDS)")
+        #sequential search 
+        search_title = input("Please enter the Title Your Searching for: ")
+        found = [] #Have to do this in order to allow for terms and phrases. 
+        for i in range(0,len(title)):
+            if search_title.lower() in title[i].lower():
+                found.append(i)
+        if not found:#AKA LIST IS EMPTY
+            print(f"Sorry your search for {search_title} is not in our Library please try again")
+        else:#FOUND YOUR SEARCH, 
+            print(f"{'LIB #':5}  {'TITLE ':35}  {'AUTHOR':20}  {'GENRE':20}  {'PAGES':5} {'STATUS'}")
+            print("-------------------------------------------------------------------------------------------------------------------------------")
+            for i in range(0,len(found)):
+                print(f" {lib_num[found[i]]:5}  {title[found[i]]:35}  {author[found[i]]:20}  {genre[found[i]]:20}  {page_count[found[i]]:5} {status[found[i]]}") #FOUND= Found at this point in the list, kinda weird 
+
+        
+
     if search == "3":
-        print ("3")
+        print ("Search by Authors")
+        #sequential search for a singular author needs to be a list, really just what above was except we dont allow words just specifics. 
+        search_author = input("Please enter the Author your searching for: ")
+        found = []
+        for i in range (0,len(author)):
+            if search_author.lower() == author[i].lower():
+                found.append(i)
+        if not found:
+            print(f"Your search for {search_author} was NOT FOUND\n Make sure you correctly spelled the authors name and try again")
+        else:#Found search for author
+            print(f"{'LIB #':5}  {'TITLE ':35}  {'AUTHOR':20}  {'GENRE':20}  {'PAGES':5} {'STATUS'}")
+            print("-------------------------------------------------------------------------------------------------------------------------------")
+            for i in range(0,len(found)):
+                print(f" {lib_num[found[i]]:5}  {title[found[i]]:35}  {author[found[i]]:20}  {genre[found[i]]:20}  {page_count[found[i]]:5} {status[found[i]]}")
+    #quite literally the same as before except now we doing specific authors
+        
+    
     if search == "4":
-        print("4")
+        print("Search By Genre")
+        #AGAIN ANOTHER SEQUENTIAL SEARCH
+        #sequential search 
+        search_title = input("Please enter the Genre Searching for: ")
+        found = [] #Have to do this in order to allow for terms and phrases. 
+        for i in range(0,len(title)):
+            if search_title.lower() in title[i].lower():
+                found.append(i)
+        if not found:#AKA LIST IS EMPTY
+            print(f"Sorry your search for {search_title} is not in our Library please try again")
+        else:#FOUND YOUR SEARCH, 
+            print(f"{'LIB #':5}  {'TITLE ':35}  {'AUTHOR':20}  {'GENRE':20}  {'PAGES':5} {'STATUS'}")
+            print("-------------------------------------------------------------------------------------------------------------------------------")
+            for i in range(0,len(found)):
+                print(f" {lib_num[found[i]]:5}  {title[found[i]]:35}  {author[found[i]]:20}  {genre[found[i]]:20}  {page_count[found[i]]:5} {status[found[i]]}")
     if search == "5":
-        print("5")
+        print("Search by Library Num")
+        search_num = input("Please Enter The Library Number Your searching For: ")
+        #Okay First to do binary search we need to have a sorted list.
+        for i in range(0, len(lib_num) - 1):#outter loop
+
+            for index in range(0, len(lib_num) - 1):#inner loop
+
+                #below if statement determines the sort
+
+                #list used is the list being sorted
+
+                # > is for increasing order, < for decreasing
+
+
+                if(lib_num[index] > lib_num[index + 1]):
+                    #if above is true, swap places!
+
+        
+
+                    swap(index, lib_num)
+                    swap(index, title)
+                    swap(index, author)
+                    swap(index, genre)
+                    swap(index, page_count)
+                    swap(index, status)
+        #Bubble sort that we did above now just for library numbers
+
+        #Now Binary Search
+        min = 0
+        max = len(lib_num)
+        mid = int((min + max) /2)
+        
+        while min < max and search_num != lib_num[mid]:
+            if search_num <lib_num[mid]:
+                #Everything afte5r mid point is not possible -------> change our max
+                max= mid + 1
+            else:
+                #Everything before mid point isnt possible -------> Change our min
+                min = mid + 1
+            mid = int((min+max) / 2)
+        if search_num == lib_num[mid]:
+            print(f"{'LIB #':5}  {'TITLE ':35}  {'AUTHOR':20}  {'GENRE':20}  {'PAGES':5} {'STATUS'}")
+            print("-------------------------------------------------------------------------------------------------------------------------------")
+            print(f" {lib_num[mid]:5}  {title[mid]:35}  {author[mid]:20}  {genre[mid]:20}  {page_count[mid]:5} {status[mid]}")
+        else:
+            print(f"Sorry Your search for {search_num} was NOT found")
     if search == "6":
         print("6")
     if search == "7":
