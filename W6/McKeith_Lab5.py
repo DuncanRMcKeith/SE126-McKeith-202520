@@ -4,11 +4,24 @@
 #Lab 5
 
 
-#Program Prompt:
+#Program Prompt:Our goal was to build a library search system using the book_list.csv. This Library needed a repetable program with a menu that only would be exited upon choosing exit option. The searches themselves also needed to be not case sensitive
 
 
 #Variable Dictionary
-
+#search = what the person is searching for
+# i = index
+# search_opt = just a menu variable, essentialy this is the input for search.
+# lib_num = library number list variable
+# title = title list variable
+# author = author list variable
+# genre = genre list varaible
+# page_count = page count list variable
+# status = status list variable
+# 
+# 
+# 
+# 
+# 
 
 #--------------MAIN CODE BELOW-------------------------
 
@@ -132,23 +145,24 @@ while answer == "y":
                 print(f" {lib_num[found[i]]:5}  {title[found[i]]:35}  {author[found[i]]:20}  {genre[found[i]]:20}  {page_count[found[i]]:5} {status[found[i]]}")
     #quite literally the same as before except now we doing specific authors
         
-    
     if search == "4":
         print("Search By Genre")
         #AGAIN ANOTHER SEQUENTIAL SEARCH
         #sequential search 
-        search_title = input("Please enter the Genre Searching for: ")
+        search_genre = input("Please enter the Genre your Searching for: ")
         found = [] #Have to do this in order to allow for terms and phrases. 
-        for i in range(0,len(title)):
-            if search_title.lower() in title[i].lower():
+        for i in range(0,len(genre)):
+            if search_genre.lower() in genre[i].lower():
                 found.append(i)
         if not found:#AKA LIST IS EMPTY
-            print(f"Sorry your search for {search_title} is not in our Library please try again")
+            print(f"Sorry your search for {search_genre} is not in our Library please try again")
         else:#FOUND YOUR SEARCH, 
             print(f"{'LIB #':5}  {'TITLE ':35}  {'AUTHOR':20}  {'GENRE':20}  {'PAGES':5} {'STATUS'}")
             print("-------------------------------------------------------------------------------------------------------------------------------")
             for i in range(0,len(found)):
                 print(f" {lib_num[found[i]]:5}  {title[found[i]]:35}  {author[found[i]]:20}  {genre[found[i]]:20}  {page_count[found[i]]:5} {status[found[i]]}")
+    
+    
     if search == "5":
         print("Search by Library Num")
         search_num = input("Please Enter The Library Number Your searching For: ")
@@ -196,10 +210,37 @@ while answer == "y":
             print(f" {lib_num[mid]:5}  {title[mid]:35}  {author[mid]:20}  {genre[mid]:20}  {page_count[mid]:5} {status[mid]}")
         else:
             print(f"Sorry Your search for {search_num} was NOT found")
+    
+    
     if search == "6":
-        print("6")
+        print("Show All Avaliable Books")
+        found = []
+        for i in range(0,len(status)):
+            if status[i].lower()=="available".lower():
+                found.append(i)
+                
+        print(f"{'LIB #':5}  {'TITLE ':35}  {'AUTHOR':20}  {'GENRE':20}  {'PAGES':5} {'STATUS'}")
+        print("-------------------------------------------------------------------------------------------------------------------------------")
+        
+        for i in range(0,len(found)):
+             print(f" {lib_num[found[i]]:5}  {title[found[i]]:35}  {author[found[i]]:20}  {genre[found[i]]:20}  {page_count[found[i]]:5} {status[found[i]]}")
+            
+
+
     if search == "7":
-        print("7")
+        print("Show All on loan")
+        found = []
+        for i in range(0,len(status)):
+            if status[i].lower()=="on loan".lower():
+                found.append(i)
+                
+        print(f"{'LIB #':5}  {'TITLE ':35}  {'AUTHOR':20}  {'GENRE':20}  {'PAGES':5} {'STATUS'}")
+        print("-------------------------------------------------------------------------------------------------------------------------------")
+        
+        for i in range(0,len(found)):
+             print(f" {lib_num[found[i]]:5}  {title[found[i]]:35}  {author[found[i]]:20}  {genre[found[i]]:20}  {page_count[found[i]]:5} {status[found[i]]}")
     if search == "8":
         answer = "n"
 
+
+print("Thank you for Browsing, Have A Wonderful Day")
