@@ -14,8 +14,8 @@
 # opt = option within menu: User input to control menu
 # valid_opt = just a list used to check if a valid choice was made
 # row = row is the row chosen to be reserved
-# seat = which seat they would like to reserve
-# answer = while loop key
+# seat = which seat they chose to reserve
+#answer = while loop key
 
 #--Imports----------------------------------------------
 import csv
@@ -51,7 +51,7 @@ seatB = ['B','B','B','B','B','B','B']
 seatC = ['C','C','C','C','C','C','C']
 seatD = ['D','D','D','D','D','D','D']
 seat_total= [seatA,seatB,seatC,seatD]
-seat_opt = ["A","B","C","D"]
+seat_opt = ['A','B','C','D']
 '''for i in range(0,len(seat_choosen)):
     print(seat_choosen[i])''' #These lines were originally a check to see if i could put all the lists together then have seat options as a sort of check to see if all seats were taken up. 
 answer = "y"
@@ -59,11 +59,8 @@ answer = "y"
 
 
 while answer == "y": #USER CANT EXIT UNLESSS THEY PICK OPTION 3. AKA USER IS ASKED IF THEY WANNA KEEP BOOKING THEN AFTER THEY ARE DONE THE PROGRAM ENDS. 
-    for i in range(0,len(seat_total)):
-        for x in range(0,len(seat_total[i])):
-            if seat_opt[0] not in seat_total[i] or seat_opt[1] not in seat_total[i] or seat_opt[2] not in seat_total[i] or seat_opt[3] not in seat_total[i]: #AKA ALL ARE X
-                print("This current flight is fully booked sorry for the inconvience.")
-                answer = "n"
+    
+    
                 
                 
     #Else there are still seats avaliable
