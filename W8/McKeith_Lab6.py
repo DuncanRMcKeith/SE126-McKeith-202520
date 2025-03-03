@@ -46,26 +46,51 @@ with open ('Txt_Files/words.csv') as csvfile:
 #Original Test to make sure dictionary was populating, will be used later on for the keywords. 
 '''
 for key in words:
-    print(f"{key:20}:\t{words[key]}")
+    print(f"{key:20}:{words[key]}")
    '''     
 while ans == "y":
     opt = menu()
     if opt == "1":
-        print (f"{'Words':20}:\t{'Definitions'}")
+        print (f"{'Words':20}:\n\t{'Definitions'}")
         print('-'*50)
         for key in words:
-            print(f"{key:20}:\t{words[key]}")
+            print(f"{key:20}:\n\t{words[key]}")
         print('-'*50)
     elif opt == "2":
         print("search for a word")
         found = 0
         search = input("Please enter the word your searching for: ")
         for key in words:
-            if search.lower() == key
+            if search.lower() == key.lower():
+                found = key
+            #If the word is the same as the search(since words are our key in this way)
+            
+        if found != 0:
+            print(f"{found}:\n\t{words[found]}")
+        else:
+            print(f"Your search for {search} is not found")
 
 
         
     elif opt == "3":
-        print("Add a word")
+        word_add = input("What word would you like to add to your definitions?")
+        bad = "n" #This is a flag we are using to check our word, making sure it is not already within the dictionary. 
+        definition_key = "n" #This is to give the user another chance to check their definition to make sure its correct before adding it to the dictionary since we cannot edit this later on.
+        for key in words:
+            if word_add.lower() == key.lower():
+                bad = "y"
+        if bad == "y":
+            print(f"Error! {word_add} already exists within dictionary. Returning to menu, please try again with a new word!")
+        definition = input(f"What is the Definition for {word_add}?")
+        while definition_key == "n":
+            print(f"{word_add} : \n\t{definition}")
+            definition_key = input("Is what listed above Correct? [y/n]").lower()
+            while definition_key not in['y','n']:
+                print("Error improper syntax please try again")
+                definition_key = input("Is what listed above Correct? [y/n]").lower()
+            if definition_key == "n":
+                definition = input(f"What is the Definition for {word_add}?")
+        #Now i need to figure out how to append something to this! Cause setting it up like i did above except now with the terms word_add and definition doesnt work. 
+
     elif opt == "4": #Funny enough this is always the first code i add to my loops even before i make a menu functions. WHEN YOU MAKE A LOOP YOU SURE HAVE A WAY TO CLOSE IT
         ans = "n"

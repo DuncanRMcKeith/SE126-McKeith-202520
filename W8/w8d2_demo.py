@@ -41,6 +41,7 @@ for key in library:
     
     if search.lower() == library[key].lower():
         found = key
+        
     
 if found != 0:
     print(f"Key:{found}\tTitle:{library[found]}")
