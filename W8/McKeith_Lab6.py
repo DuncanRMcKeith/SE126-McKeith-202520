@@ -58,6 +58,13 @@ while ans == "y":
         print('-'*50)
     elif opt == "2":
         print("search for a word")
+        found = 0
+        search = input("Please enter the word your searching for: ")
+        for key in words:
+            if search.lower() == key
+
+
+        
     elif opt == "3":
         print("Add a word")
     elif opt == "4": #Funny enough this is always the first code i add to my loops even before i make a menu functions. WHEN YOU MAKE A LOOP YOU SURE HAVE A WAY TO CLOSE IT
