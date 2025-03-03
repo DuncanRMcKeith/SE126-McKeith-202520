@@ -60,10 +60,10 @@ for key in words:
 while ans == "y":
     opt = menu()
     if opt == "1":
-        print (f"{'Words':20}:\n\t{'Definitions'}")
+        print (f"{'Words':20}\n\t-{'Definitions'}")
         print('-'*50)
         for key in words:
-            print(f"{key:20}:\n\t{words[key]}")
+            print(f"{key:20}\n\t-{words[key]}")
         print('-'*50)
     elif opt == "2":
         #Simple sequential Seach function dont need to overcomplicate it. 
@@ -90,19 +90,20 @@ while ans == "y":
                 bad = "y"
         if bad == "y":
             print(f"Error! {word_add} already exists within dictionary. Returning to menu, please try again with a new word!")
-        definition = str(input(f"What is the Definition for {word_add}?"))
-        while definition_key == "n":
-            print(f"{word_add} : \n\t{definition}")
-            definition_key = input("Is what listed above Correct? [y/n]").lower()
-            while definition_key not in['y','n']:
-                print("Error improper syntax please try again")
+        else:
+            definition = str(input(f"What is the Definition for {word_add}?"))
+            while definition_key == "n":
+                print(f"{word_add} : \n\t{definition}")
                 definition_key = input("Is what listed above Correct? [y/n]").lower()
-            if definition_key == "n":
-                definition = str(input(f"What is the Definition for {word_add}?"))
-        #Now i need to figure out how to append something to this! Cause setting it up like i did above except now with the terms word_add and definition doesnt work. 
-            words.update({word_add : definition})#)------ISNT WORKING, cant tell why its not considering its like the exact same 
-            
-            #Note my issue was a single bracket of curlbraces.... Not 2.
+                while definition_key not in['y','n']:
+                    print("Error improper syntax please try again")
+                    definition_key = input("Is what listed above Correct? [y/n]").lower()
+                if definition_key == "n":
+                    definition = str(input(f"What is the Definition for {word_add}?"))
+            #Now i need to figure out how to append something to this! Cause setting it up like i did above except now with the terms word_add and definition doesnt work. 
+                words.update({word_add : definition})#)------ISNT WORKING, cant tell why its not considering its like the exact same 
+                
+                #Note my issue was a single bracket of curlbraces.... Not 2.
             
     elif opt == "4": #Funny enough this is always the first code i add to my loops even before i make a menu functions. WHEN YOU MAKE A LOOP YOU SURE HAVE A WAY TO CLOSE IT
         ans = "n"
