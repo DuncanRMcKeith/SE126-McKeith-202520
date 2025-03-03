@@ -1,13 +1,36 @@
 #Duncan McKeith
 #3-2-2025
 #SE 126: Intermidiate Python
-#Lab 6
+#Lab 7
 
 
 #Program Prompt:
 
 #Variable Dictionary:
-
+#
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
 
 
 #----------------------MAIN CODE BELOW-------------------------------------
@@ -81,7 +104,7 @@ while ans == "y":
                 bad = "y"
         if bad == "y":
             print(f"Error! {word_add} already exists within dictionary. Returning to menu, please try again with a new word!")
-        definition = input(f"What is the Definition for {word_add}?")
+        definition = str(input(f"What is the Definition for {word_add}?"))
         while definition_key == "n":
             print(f"{word_add} : \n\t{definition}")
             definition_key = input("Is what listed above Correct? [y/n]").lower()
@@ -89,8 +112,9 @@ while ans == "y":
                 print("Error improper syntax please try again")
                 definition_key = input("Is what listed above Correct? [y/n]").lower()
             if definition_key == "n":
-                definition = input(f"What is the Definition for {word_add}?")
+                definition = str(input(f"What is the Definition for {word_add}?"))
         #Now i need to figure out how to append something to this! Cause setting it up like i did above except now with the terms word_add and definition doesnt work. 
-
+            # words.update({word_add} : {definition})------ISNT WORKING, cant tell why its not considering its like the exact same 
+            
     elif opt == "4": #Funny enough this is always the first code i add to my loops even before i make a menu functions. WHEN YOU MAKE A LOOP YOU SURE HAVE A WAY TO CLOSE IT
         ans = "n"
