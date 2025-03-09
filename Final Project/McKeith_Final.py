@@ -12,7 +12,6 @@
 #-----IMPORTS--------------------------------------------
 import csv
 import os
-
 from os import system, name 
 from time import sleep 
 #-----FUNCTIONS-------------------------------------------
@@ -53,6 +52,17 @@ def clear():
     # for mac and linux(here, os.name is 'posix') 
     else: 
         _ = system('clear') 
+
+def check(var):
+    '''This is a system of checks to make sure the user doesnt add in bad stuff to the variable
+    Var = Varaible input required to check pass input check '''
+    var = var.replace(",","")
+    while var == "":
+        print("Pardon me but you cant add blanks into the index")
+        var = input("Name You would like to add to the index: ").strip()
+    return var
+    
+    
 
 
 #-----EXECUTING CODE BELOW--------------------------------
@@ -101,21 +111,21 @@ while ans == "y":
     choice = menu(fun)
     fun += 1 #Okay so this the first time the code will run will read as 0 From there on out the value will change to not be 0
     if choice == "1":
-        print("Show All Records")#Just show all the answers
+        #Just show all the answers
         print(f"{'Name':20} {'Organization':25} {'Last Location'}")
         print("-"*60)
         for i in range(0,len(names)):
             print(f"{names[i]:20} {org[i]:25} {location[i]}")
 
     if choice == "2":
-        print("Search by Name") #Simple sequential search
+        #Simple sequential search
         found = -1
         search = input("Please Write the Name your searching for").lower()
         for i in range(0,len(names)):
             if search.lower() == names[i].lower():
                 found = i
         if found != -1:
-            print(f"{names} entry was found")
+            print(f"{search} entry was found")
             print(f"{'Name':20} {'Organization':25} {'Last Location'}")
             print("-"*60)
             print(f"{names[found]:20} {org[found]:25} {location[found]}")
@@ -125,8 +135,8 @@ while ans == "y":
 
 
     if choice == "3":
-        print("Search by Organization")
-        found = [] #Can be multiple within an organization, so its a sequential search again but this time now a list
+        #Can be multiple within an organization, so its a sequential search again but this time now a list
+        found = [] 
         search = input("Please Write the organization your searching for").lower()
         for i in range(0,len(org)):
             if search.lower() == org[i].lower():
@@ -134,17 +144,118 @@ while ans == "y":
         if not found:
             print(f"Apologies your search for {search} was not found")
         else:
-            print(f"Your search for ")
-            for i in range(0,(found)):
-                print()
+            print(f"Your search for {search} was found")
+            print(f"{'Name':20} {'Organization':25} {'Last Location'}")
+            print('-'*60)
+            for i in range(0,len(found)):
+                print(f"{names[found[i]]:20} {org[found[i]]:25} {location[found[i]]}")
+                print(f"Notes: {notes[found[i]]}")
+
     if choice == "4":
-        print("Search by Last Known Location")    
+        #Another seqential search in a list, in reality just have to change org to location.     
+        found = []
+        search = input("What Location are you searching for?")
+        for i in range(0,len(location)):
+            if search.lower() == location[i].lower():
+                found.append(i)
+        if not found:
+            print(f"Apologies your search for {search} was not found")
+        else:
+            print(f"Your search for {search} was found")
+            print(f"{'Name':20} {'Organization':25} {'Last Location'}")
+            print('-'*60)
+            for i in range(0,len(found)):
+                print(f"{names[found[i]]:20} {org[found[i]]:25} {location[found[i]]}")
+                print(f"Notes: {notes[found[i]]}")
+
+    #OKAY EASY STUFF DONE, now we enter the hell of constant checks and survalience to ensure someone doesnt break the entire code. 
     if choice == "5":
-        print("5.Add an entry")
+        
+        found = -1 
+        add_name = input("Name You would like to add to the index: ").strip()
+        #First check to make sure its not a name already within our index, for this we will use found
+        for i in range(0,len(names)):
+            if add_name.lower() == names[i].lower():
+                found = 1
+        if found != -1:
+            print("This Entry already exists! Please either edit or search your notes!")
+        else:
+            add_name = check(add_name)
+            #Okay list of checks is done, now we get to all the other checks....
+        add_org = input("What Organization are they a part of? [If Unafliated Type Unafilated]: ")
+        add_org = check(add_org)
+        add_location = input("Where were they last located? ")
+        add_location = check(add_location)
+        add_notes = input("Add in any additional notes!")
+        add_notes = check(add_notes)
+        #OKAY ALL INFOS IN, now we need to add it to the lists
+        names.append(add_name)
+        org.append(add_org)
+        location.append(add_location)
+        notes.append(add_notes)
+
+        
     if choice == "6":
-        print("6.Edit an entry")
+        #print("6.Edit an entry")
+        #Okay so now we split this into 3 parts, 1ST. What entry are we replacing?(Seqential search for names). 2ND We need to ask the user what there replacing, so small menu. 3RD. replacing the actual data
+
+
+        edit = "y"
+        found = -1
+        #1ST
+
+        search = input("Whose Entry are we editing? ")
+        for i in range(0,len(names)):
+            if search.lower() == names[i].lower():
+                found = i
+        if found != -1:
+            print(f"{search} entry was found")
+            print(f"{'Name':20} {'Organization':25} {'Last Location'}")
+            print("-"*60)
+            print(f"{names[found]:20} {org[found]:25} {location[found]}")
+            print(f"Notes: {notes[found]}")
+        else:
+            print(f"Apologies There are no Entries for {search}\n Please Try again or add a new entry")
+        #2ND.
+
+        while edit == "y":
+            print("Please Select From Menu below on what Data were editing")
+            print("1.Name")
+            print("2.Org")
+            print("3.Location")
+            print("4.Notes")
+            choice = input("")
+            #3RD.
+            if choice == "1":
+                edit_name = input("Oh? What is their name now?: ")
+                names[found] = edit_name
+            if choice == "2":
+                edit_org = input("PlotTwist! What Organization do they belong to now?: ")
+                org[found] = edit_org
+            if choice == "3":
+                edit_location = input("Where are they now?: ")
+                location[found] = edit_location
+            if choice == "4":
+                edit_notes = input("OH? what new lore did you find?: ")
+                notes[found] = notes[found] + edit_notes
+            else:
+                print("Error thats not within the choices, please Try again.")
+            edit = input("Would you like to keep editing?[y/n]").lower()
+            while edit != "y" and edit != "n":
+                print(f"Error Im not sure what you mean by{edit}. Please try again")
+                edit = input("Would you like to keep editing?[y/n]").lower()
+
     if choice == "7":
-        print("Close the index")
+        print("Closing the index. Safe Travels Adventurer!")
         ans = "n"
     input("Press Enter to Continue")
     clear()
+
+#OKAY NOW LAST BUT CERTAINLY not least. WE Overwrite the csv file so that we get all the new data in there. 
+file = open("Final Project/dndnotes.csv", 'w')
+for i in range(0,len(names)):
+    if i < len(names)-1:
+        file.write(f"{names[i]},{org[i]},{location[i]},{notes[i]}\n")
+    else:
+        file.write(f"{names[i]},{org[i]},{location[i]},{notes[i]}")
+file.close

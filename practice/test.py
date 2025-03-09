@@ -11,7 +11,7 @@
 
 
 #------------------------MAIN CODE BELOW--------------------------
-user_input = input("Dont leave a blank").strip()
+user_input = input("Put in A comma").strip()
 
-while user_input == "":
-    user_input= input("I SAID NO BLANKS").strip()
+user_input = user_input.replace(",","")
+print
