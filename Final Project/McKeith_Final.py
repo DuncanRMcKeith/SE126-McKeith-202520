@@ -66,6 +66,7 @@ def check(var):
 
 
 #-----EXECUTING CODE BELOW--------------------------------
+clear()#Gotta clear away all the excesses junk.
 names = []
 org = []
 location = [] #Note this stands for last location not current location as npcs and people can move,
@@ -120,7 +121,7 @@ while ans == "y":
     if choice == "2":
         #Simple sequential search
         found = -1
-        search = input("Please Write the Name your searching for").lower()
+        search = input("Please Write the Name your searching for: ").lower()
         for i in range(0,len(names)):
             if search.lower() == names[i].lower():
                 found = i
@@ -137,7 +138,7 @@ while ans == "y":
     if choice == "3":
         #Can be multiple within an organization, so its a sequential search again but this time now a list
         found = [] 
-        search = input("Please Write the organization your searching for").lower()
+        search = input("Please Write the organization your searching for: ").lower()
         for i in range(0,len(org)):
             if search.lower() == org[i].lower():
                 found.append(i)
@@ -154,7 +155,7 @@ while ans == "y":
     if choice == "4":
         #Another seqential search in a list, in reality just have to change org to location.     
         found = []
-        search = input("What Location are you searching for?")
+        search = input("What Location are you searching for?: ")
         for i in range(0,len(location)):
             if search.lower() == location[i].lower():
                 found.append(i)
