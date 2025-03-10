@@ -182,11 +182,11 @@ while ans == "y":
         else:
             add_name = check(add_name)
             #Okay list of checks is done, now we get to all the other checks....
-        add_org = input("What Organization are they a part of? [If Unafliated Type Unafilated]: ")
+        add_org = input("What Organization are they a part of? [If Unafliated Type Unafilated]: ").strip()
         add_org = check(add_org)
-        add_location = input("Where were they last located? ")
+        add_location = input("Where were they last located? ").strip()
         add_location = check(add_location)
-        add_notes = input("Add in any additional notes!")
+        add_notes = input("Add in any additional notes!").strip()
         add_notes = check(add_notes)
         #OKAY ALL INFOS IN, now we need to add it to the lists
         names.append(add_name)
@@ -223,21 +223,31 @@ while ans == "y":
             print("1.Name")
             print("2.Org")
             print("3.Location")
-            print("4.Notes")
-            choice = input("")
+            print("4.Add Notes")
+            print("5.Remove Notes")
+            choice = input("").strip()
             #3RD.
             if choice == "1":
-                edit_name = input("Oh? What is their name now?: ")
+                edit_name = input("Oh? What is their name now?: ").strip()
+                check(edit_name)
                 names[found] = edit_name
             if choice == "2":
-                edit_org = input("PlotTwist! What Organization do they belong to now?: ")
+                edit_org = input("PlotTwist! What Organization do they belong to now?: ").strip()
+                check(edit_org)
                 org[found] = edit_org
             if choice == "3":
-                edit_location = input("Where are they now?: ")
+                edit_location = input("Where are they now?: ").strip()
+                check(edit_location)
                 location[found] = edit_location
             if choice == "4":
-                edit_notes = input("OH? what new lore did you find?: ")
-                notes[found] = notes[found] + edit_notes
+                edit_notes1 = input("OH? what new lore did you find?: ") #Notice we didnt add a .strip as we dont really care if its blank, its just adding in spaces. 
+                check(edit_notes1)
+                notes[found] = notes[found] + edit_notes1
+            if choice == "5":
+                print(notes[found])
+                edit_notes2 = input("Please Write your replacement notes (See above for what you had before :) )").strip()
+                check(edit_notes2)
+                notes[found] = edit_notes2
             else:
                 print("Error thats not within the choices, please Try again.")
             edit = input("Would you like to keep editing?[y/n]").lower()
