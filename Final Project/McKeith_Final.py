@@ -1,13 +1,31 @@
 #Duncan McKeith
-#2-28-2025
+#3-11-2025
 #SE 126: Intermidiate Python
 #Final Project
 
 
-#Program Prompt:
+#Program Prompt: This program Is a DND notes app, That will allow the user to view, edit, search, and add to a csv file. The catagories are names, organization, location, and additional notes. The CSV file is also designed to be created as soon as its run for the first time. 
 
 #Variable Dictionary:
-
+#names = Names list variable
+# org = organization list variable(orgainization in this means group associated with npc)
+# location = last location list variable. 
+# notes = Notes list variable
+# ans = while loop variable
+# fun = Okay this is a weird tracker i made to allow a opening msg if = 0 then changing the value so the opening msg doesnt replay. Needed to be done both at a local(within the function) and global(within the code) scale.
+# campaign_notes = Starting csv data, Just  a user input on if they would like them or not(if no they create a blank csv file named the same thing just without data)
+# found = sequential search for when we find something
+# search = user input for what they are searching for
+# add_name = Variable for what they want the new name to add into the csv file
+# add_org = variable for what organization that NPCS org belongs to
+# add_location = variable for what location that NPC was last seen in
+# add_notes = variable for notes for that npc
+# edit = While loop variable for editing, if y they continue editing data, if no they stop and return to the main user menu
+# edit_name = Variable input for what the user would like to change the specific NPCS name to
+# edit_org = variable input for what the user would like to change the NPCS associated org to 
+# edit_location = variable input for what they user would like to change the NPCS last location to
+# edit_notes1 = Variable input for what the user would like to ADD to the NPCs notes
+# edit_notes2 = Variable input for the entire notes that allows the user to change the Notes, this will replace the current notes in its entirty. 
 
 #-----IMPORTS--------------------------------------------
 import csv
@@ -72,7 +90,6 @@ org = []
 location = [] #Note this stands for last location not current location as npcs and people can move,
 notes = []
 ans = "y"
-total_rec = 0
 fun = 0
 # checks for file, if not found, generates new list:
 if not os.path.exists('Final Project/dndnotes.csv'):
@@ -225,7 +242,7 @@ while ans == "y":
             print("2.Org")
             print("3.Location")
             print("4.Add Notes")
-            print("5.Remove Notes")
+            print("5.Edit Current Notes")
             choice = input("").strip()
             #3RD.
             if choice == "1":
