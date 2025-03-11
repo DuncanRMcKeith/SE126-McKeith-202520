@@ -228,7 +228,7 @@ while ans == "y":
             print("5.Remove Notes")
             choice = input("").strip()
             #3RD.
-            if choice == "1":
+            if choice == "1": #This is a fairly simple replace, replace what we found earleier with our new user input
                 edit_name = input("Oh? What is their name now?: ").strip()
                 check(edit_name)
                 names[found] = edit_name
@@ -244,8 +244,8 @@ while ans == "y":
                 edit_notes1 = input("OH? what new lore did you find?: ") #Notice we didnt add a .strip as we dont really care if its blank, its just adding in spaces. 
                 check(edit_notes1)
                 notes[found] = notes[found] + edit_notes1
-            if choice == "5":
-                print(notes[found])
+            if choice == "5": #OKAY, now we 
+                print(notes[found]) 
                 edit_notes2 = input("Please Write your replacement notes (See above for what you had before :) )").strip()
                 check(edit_notes2)
                 notes[found] = edit_notes2
